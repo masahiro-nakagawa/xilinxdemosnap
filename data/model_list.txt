@@ -1,0 +1,123 @@
+3Dsegmentation salsanext_pt
+
+classification resnet50 
+classification resnet18 
+classification inception_v1 
+classification inception_v2 
+classification inception_v3 
+classification inception_v4
+classification mobilenet_v2
+classification squeezenet 
+classification inception_resnet_v2_tf 
+classification inception_v1_tf 
+classification inception_v2_tf
+classification inception_v3_tf
+classification inception_v4_2016_09_09_tf
+classification mobilenet_v1_0_25_128_tf
+classification mobilenet_v1_0_5_160_tf
+classification mobilenet_v1_1_0_224_tf
+classification mobilenet_v2_1_0_224_tf
+classification mobilenet_v2_1_4_224_tf
+classification mobilenet_edge_1_0_tf
+classification mobilenet_edge_0_75_tf
+classification resnet_v1_101_tf
+classification resnet_v1_152_tf
+classification resnet_v1_50_tf
+classification resnet_v2_50_tf
+classification resnet_v2_101_tf
+classification resnet_v2_152_tf
+classification vgg_16_tf
+classification vgg_19_tf
+classification MLPerf_resnet50_v1.5_tf
+classification resnet50_tf2
+classification inception_v3_tf2
+classification mobilenet_1_0_224_tf2
+classification squeezenet_pt
+classification resnet50_pt
+classification inception_v3_pt
+
+covid19segmentation FPN-resnet18_covid19-seg_pt
+
+facedetect densebox_320_320 
+facedetect densebox_640_360 
+
+
+facefeature facerec_resnet20
+facefeature facerec_resnet64
+facefeature facerec-resnet20_mixed_pt
+
+facelandmark face_landmark
+
+facequality5pt face-quality
+facequality5pt face-quality_pt
+
+hourglass hourglass-pe_mpii
+
+lanedetect vpgnet_pruned_0_99
+
+medicaldetection RefineDet-Medical_EDD_tf
+
+medicalsegcell medical_seg_cell_tf2
+
+medicalsegmentation FPN_Res18_Medical_segmentationA
+
+multitask multi_task
+multitask MT-resnet18-mixed_pt
+
+openpose openpose_pruned_0_3
+
+platedetect plate_detect
+
+platenum plate_num
+
+pointpillars pointpillars_kitti_12000_0_pt
+pointpillars pointpillars_kitti_12000_1_pt
+
+posedetect sp_net
+
+refinedet refinedet_baseline
+refinedet refinedet_pruned_0_8
+refinedet refinedet_pruned_0_92
+refinedet refinedet_pruned_0_96
+refinedet refinedet_VOC_tf
+
+reid  reid
+reid personreid-res50_pt
+reid personreid-res18_pt
+reid facereid-large_pt
+reid facereid-small_pt
+
+retinaface retinaface
+
+segmentation fpn
+segmentation semantic_seg_citys_tf2
+segmentation unet_chaos-CT_pt
+segmentation FPN-resnet18_Endov
+segmentation SemanticFPN_cityscapes_pt
+segmentation ENet_cityscapes_pt
+segmentation mobilenet_v2_cityscapes_tf
+
+ssd ssd_pedestrian_pruned_0_97A
+ssd ssd_traffic_pruned_0_9
+ssd ssd_adas_pruned_0_95
+ssd ssd_mobilenet_v2
+ssd mlperf_ssd_resnet34_tf
+
+tfssd ssd_mobilenet_v1_coco_tfA
+tfssd ssd_mobilenet_v2_coco_tf
+tfssd ssd_resnet_50_fpn_coco_tf
+tfssd ssd_inception_v2_coco_tf
+tfssd ssdlite_mobilenet_v2_coco_tf
+
+yolov2 yolov2_voc 
+yolov2 yolov2_voc_pruned_0_66 
+yolov2 yolov2_voc_pruned_0_71 
+yolov2 yolov2_voc_pruned_0_77 
+
+yolov3 yolov3_adas_pruned_0_9A
+yolov3 yolov3_voc
+yolov3 yolov3_bdd
+yolov3 yolov3_voc_tf
+
+yolov4 yolov4_leaky_spp_m 
+

@@ -1,0 +1,80 @@
+name: masahirofacedetect # you probably want to 'snapcraft register <name>'
+base: core20 # the base snap is the execution environment for this snap
+version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
+summary: Single-line elevator pitch for your amazing snap # 79 char long summary
+description: |
+  This is my-snap's description. You have a paragraph or two to tell the
+  most important story about your snap. Keep it under 100 words though,
+  we live in tweetspace and your description wants to look good in the snap
+  store.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+plugs:
+    assets:
+      interface: content
+      # We expect dpu.xclbin has been copied to this  folder
+      target: $SNAP_DATA/assets
+
+apps:
+
+  test-jpeg:
+    command: bin/test.sh jpeg
+    plugs: [opengl, home, network]
+    environment:
+        XLNX_VART_FIRMWARE: $SNAP_DATA/assets/dpu.xclbin
+
+parts:
+  samples:
+    plugin: nil
+    source: https://github.com/Xilinx/Vitis-AI.git
+    source-type: git
+    source-tag: v1.3.2
+    source-depth: 1
+    build-packages:
+      - build-essential
+      - wget
+      - libopencv-dev
+      - libgoogle-glog-dev
+      - vitis-ai-library
+    stage-packages:
+      - wget
+      - vitis-ai-library
+    override-build: |
+      set -ex
+      shopt -s extglob
+
+      # For each directory in the samples directory, enter and run build.sh
+      mkdir -p "$SNAPCRAFT_PART_INSTALL"/bin/
+      echo "Hiro"
+      cd  demo/Vitis-AI-Library/samples/facedetect
+
+      touch fileshiro
+      sed -i 's/-std=c++17/-std=c++17 -I\/usr\/include\/opencv4/g' build.sh
+      ./build.sh
+      cp test_*_*([^.]) "$SNAPCRAFT_PART_INSTALL"/bin/
+      cd ..
+
+      SYSROOT_LIB=/usr/lib/
+
+       #  These libraries are loaded by dlopen
+        LIB_D=$SNAPCRAFT_PART_INSTALL/usr/lib
+        cp -a $SYSROOT_LIB/libvart-dpu-runner* $LIB_D
+        cp -a $SYSROOT_LIB/libvart-mem-manager* $LIB_D
+
+    override-prime: |
+       set -ex
+       snapcraftctl prime
+
+       # Create links that normally would be to /etc/alternatives
+       ln -sf blas/libblas.so.3 usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libblas.so.3
+       ln -sf lapack/liblapack.so.3 usr/lib/$SNAPCRAFT_ARCH_TRIPLET/liblapack.so.3
+
+
+  data:
+    plugin: dump
+    source-type: local
+    source: data
+
+
